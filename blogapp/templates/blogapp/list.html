@@ -1,0 +1,31 @@
+{% extends 'blogapp/base.html' %}
+
+{% block content1 %}
+
+<li>{{title}}</li>
+
+</div>
+ {% if post %}
+     <ul>
+     {% for e in post %}
+          <p>{{ e.id }} - <a href='{{ e.get_absolute_url }}'>{{ e.title }}</a></p>
+     <br> {{ e.description }}<br>
+       {% if e.image %}
+     <img src="{{ e.image.url }}" class="img-responsive" />
+    {% endif %}
+      {{ e.description }}
+         {{ e.slug }}
+         {{ e.publish }}
+         {{ e.read_time }}
+         {{ e.draft }}
+
+
+
+     {% endfor %}
+    </ul>
+{% else %}
+ <p>No clips are available.</p>
+ {% endif %}
+    </div>
+{% endblock content1 %}
+
